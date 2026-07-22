@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, rgba(255, 163, 223, 0.14), transparent 22%),
+                radial-gradient(circle at right, rgba(255, 214, 142, 0.1), transparent 18%),
+                linear-gradient(180deg, #110319 0%, #070109 48%, #12021b 100%);
+    color: #f9f2ff;
+    overflow-x: hidden;
+}
+
+.cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: radial-gradient(circle at top, rgba(255, 114, 189, 0.16), transparent 35%);
+}
+
+.cover-photo {
+    width: 320px;
+    height: 320px;
+    border-radius: 28px;
+    object-fit: cover;
+    box-shadow: 0 0 45px rgba(255, 77, 166, 0.28), 0 0 80px rgba(115, 52, 183, 0.18);
+    margin-bottom: 32px;
+    transition: transform 0.4s ease;
+}
+
+.cover-photo:hover {
+    transform: scale(1.03);
+}
+
+h1 {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    margin-bottom: 20px;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 28px rgba(255, 121, 193, 0.28);
+}
+
+h2 {
+    color: #ff9fda;
+    margin-bottom: 12px;
+    font-size: 1.75rem;
+}
+
+.quote {
+    margin-top: 25px;
+    font-size: 1.05rem;
+    max-width: 700px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 40px;
+    padding: 16px 45px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff5aa7, #8d58ff);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 18px 42px rgba(255, 82, 175, 0.28);
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+.share-button {
+    margin-top: 18px;
+    padding: 14px 34px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffd9f7;
+    font-size: 0.98rem;
+    border-radius: 999px;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.share-button:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.share-note {
+    margin-top: 14px;
+    color: rgba(255,255,255,0.76);
+    font-size: 0.95rem;
+}
+
+.memory {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.memory-photo {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 28px;
+    margin: 34px 0;
+    box-shadow: 0 30px 80px rgba(255, 77, 166, 0.18);
+}
+
+.memory h1 {
+    font-size: clamp(3rem, 7vw, 4.8rem);
+    color: #ff9ddf;
+}
+
+.memory h2 {
+    margin-top: 10px;
+    color: #f1e4ff;
+}
+
+.memory p {
+    max-width: 760px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.84);
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 4, 18, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    z-index: 50;
+}
+
+.image-modal.open {
+    display: flex;
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 1000px;
+    width: min(100%, 92vw);
+    background: rgba(20, 8, 34, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.55);
+}
+
+.image-modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.image-modal-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.music-control {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 77, 166, 0.95);
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 18px 40px rgba(255, 77, 166, 0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.music-control:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 77, 166, 1);
+}
+
+.gallery-page {
+    background: linear-gradient(180deg, #190425 0%, #08030d 60%, #12021a 100%);
+    min-height: 100vh;
+    padding: 48px 0 60px;
+}
+
+.scrapbook {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+    padding: 0 14px;
+}
+
+.scrapbook-header {
+    max-width: 760px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.scrapbook-header h1 {
+    font-size: clamp(3rem, 4vw, 5rem);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #ffb2ea;
+    text-shadow: 0 0 24px rgba(255, 122, 193, 0.26);
+}
+
+.scrapbook-header p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.82);
+}
+
+.scrapbook-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-bottom: 32px;
+}
+
+.scrapbook-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 22px 60px rgba(10, 4, 25, 0.45);
+    backdrop-filter: blur(16px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.scrapbook-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 135, 193, 0.38);
+    box-shadow: 0 30px 80px rgba(16, 4, 40, 0.48);
+}
+
+.scrapbook-card img {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 18px;
+}
+
+.scrapbook-card p {
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 14px 34px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff5aaf, #ff9cc3);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: #ff6bbd;
+}
+
+.reasons {
+    display: grid;
+    gap: 24px;
+    padding: 18px 0 0;
+}
+
+.reason {
+    border-radius: 30px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+    min-height: 320px;
+}
+
+.reason h2 {
+    margin-bottom: 16px;
+    font-size: 1.8rem;
+    color: #ffb2ea;
+}
+
+.reason p {
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.85;
+}
+
+.reason-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 32px auto 0;
+    max-width: 920px;
+}
+
+.reason-links p {
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 8px;
+}
+
+@media (max-width: 760px) {
+    .reasons {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .reasons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reason {
+        min-width: calc(100vw - 44px);
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+    }
+
+    .reason-links {
+        justify-content: center;
+    }
+
+    .reason-links .btn {
+        flex: 1 1 calc(50% - 14px);
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 540px) {
+    .reason-links .btn {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .scrapbook-gallery {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 540px) {
+    .scrapbook-card {
+        padding: 18px;
+    }
+
+    .scrapbook-card img {
+        max-height: 280px;
+    }
+}
